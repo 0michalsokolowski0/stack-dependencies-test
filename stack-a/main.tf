@@ -4,7 +4,7 @@ resource "random_string" "db_connection_string" {
 }
 
 resource "random_string" "some_random_string" {
-  length  = 4
+  length  = 3
   special = false
 }
 
