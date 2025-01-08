@@ -14,7 +14,7 @@ data "terraform_remote_state" "example_stack_state" {
   backend = "remote"
 
   config = {
-    hostname     = "spacelift.io"
+    hostname     = "spacelift.tf"
     organization = "0michalsokolowski0"
     workspaces = {
       name = "dependencies-stack-a"
