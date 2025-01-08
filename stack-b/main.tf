@@ -23,5 +23,5 @@ data "terraform_remote_state" "example_stack_state" {
 }
 
 output "example_output" {
-  value = data.terraform_remote_state.example_stack_state.outputs.<output_name>
+  value = data.terraform_remote_state.example_stack_state.outputs.DB_CONNECTION_STRING
 }
