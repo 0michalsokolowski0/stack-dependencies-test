@@ -9,3 +9,19 @@ output "stack-a-id" {
 output "stack-a-administrative" {
   value = data.spacelift_stack.stack-a-data.administrative
 }
+
+data "terraform_remote_state" "example_stack_state" {
+  backend = "remote"
+
+  config = {
+    hostname     = "spacelift.io"
+    organization = "0michalsokolowski0"
+    workspaces = {
+      name = "dependencies-stack-a"
+    }
+  }
+}
+
+output "example_output" {
+  value = data.terraform_remote_state.example_stack_state.outputs.<output_name>
+}
