@@ -3,6 +3,7 @@ resource "spacelift_stack" "stack-a" {
   repository   = "stack-dependencies-test"
   project_root = "stack-a"
   branch       = "main"
+  terraform_external_state_access = true
 }
 
 resource "spacelift_stack" "stack-b" {
@@ -11,15 +12,4 @@ resource "spacelift_stack" "stack-b" {
   repository   = "stack-dependencies-test"
   project_root = "stack-b"
   branch       = "main"
-}
-
-resource "spacelift_stack_dependency" "dependency" {
-  stack_id            = spacelift_stack.stack-b.id
-  depends_on_stack_id = spacelift_stack.stack-a.id
-}
-
-resource "spacelift_stack_dependency_reference" "reference" {
-  stack_dependency_id = spacelift_stack_dependency.dependency.id
-  output_name         = "DB_CONNECTION_STRING"
-  input_name          = "TF_VAR_APP_DB_URL"
 }

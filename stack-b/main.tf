@@ -8,3 +8,14 @@ resource "null_resource" "app" {
     command = "echo ${var.APP_DB_URL} > app_db_url.txt"
   }
 }
+
+data "terraform_remote_state" "stack_a" {
+  backend = "remote"
+  config = {
+    organization = "spacelift"
+    workspaces = {
+      name = "stack-a"
+    }
+  }
+}
+
