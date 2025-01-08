@@ -1,6 +1,7 @@
 variable "APP_DB_URL" {
   description = "The database URL for the application"
   type        = string
+  default = "postgres://user:password@localhost:5432/mydb"
 }
 
 resource "null_resource" "app" {
