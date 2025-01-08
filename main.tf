@@ -12,4 +12,5 @@ resource "spacelift_stack" "stack-b" {
   repository   = "stack-dependencies-test"
   project_root = "stack-b"
   branch       = "main"
+  administrative = true
 }
